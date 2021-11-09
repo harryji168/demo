@@ -1,0 +1,104 @@
+
+main {
+    padding: 50px;
+}
+
+.swiper {
+   height: 600px;
+   width: 1280px;
+}
+
+.swiper-slide {
+    background-size: cover;
+    // background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.swiper-slide>a {
+    
+    text-decoration: none;
+    color:white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.tags {
+    justify-content: flex-start;
+}
+
+.card-img {
+    height: 300px;
+}
+$bootstrap-sm: 576px;
+$bootstrap-md: 768px;
+$bootstrap-lg: 992px;
+$bootstrap-xl: 1200px;
+
+// Crop thumbnail images.
+#gallery {
+  img {
+    height: 75vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 35vw;
+    }
+    
+    @media (min-width: $bootstrap-lg) {
+      height: 18vw;
+    }
+  }
+}
+
+// Crop images in the coursel
+.carousel-item {
+  img {
+    height: 60vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 350px;
+    }
+  }
+}
+
+// Use Bootstrap breakpoints for consistency.
+$bootstrap-sm: 576px;
+$bootstrap-md: 768px;
+$bootstrap-lg: 992px;
+$bootstrap-xl: 1200px;
+
+// Crop thumbnail images.
+#gallery {
+  img {
+    height: 75vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 35vw;
+    }
+    
+    @media (min-width: $bootstrap-lg) {
+      height: 18vw;
+    }
+  }
+}
+
+// Crop images in the coursel
+.carousel-item {
+  img {
+    height: 60vw;
+    object-fit: cover;
+    
+    @media (min-width: $bootstrap-sm) {
+      height: 350px;
+    }
+  }
+}
+

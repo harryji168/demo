@@ -1,0 +1,30 @@
+<div align=center><h1>Bookings</h1>
+<h3> <%= link_to "List", booked_facilities_path %> |
+<%= link_to "Calendar", booked_calendar_path %> </h3> </div>
+<% @courses.each do |course| %>
+    <div class="container my-3 border border-black">
+       <div class="card my-3 border-0">
+        <h3><%= course.title %></h3>
+        <% course.bookings.each do |booking| %>
+             
+                <% if course.bookings.length == 0 %>
+                    You have not booked a facility for this course yet
+                <% else %>
+                    <% facility = Facility.find(booking.facility_id) %>
+                    <h5>Facility Address<%= facility.full_address %></h5>
+                    <h6>Start Time: <%= booking.start_time.strftime("%m/%d/%Y") %></h6>
+                    <h6>End   Time: <%= booking.end_time.strftime("%m/%d/%Y") %></h6>
+                    <h6>Comment   : <%= booking.comment %></h6>
+                    <h5>Booking Status: <%= booking.approved ? "approved":"pending"%></h5>
+                    <hr>
+                    <%= link_to "See facility details", facility_path(facility.id) %>
+                    <a href="https://buy.stripe.com/test_14kcOZ6ut2CzgLK288">Pay for your booking</a>
+                    <% if booking.approved? %>
+                        <%= link_to "Cancel Booking", course_booking_path(course.id, booking.id), method: :delete, data:{confirm:"Are you sure you want to delete?"} %>
+                    <% end %>
+                <% end %>
+                
+        <% end %>
+        </div> 
+    </div>
+<% end %>

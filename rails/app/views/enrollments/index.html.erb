@@ -1,0 +1,28 @@
+<h1 style="text-align: center;">Enrolled Courses</h1>
+<hr>
+
+<div class="d-flex flex-wrap backGround">
+<% @enrollments.each do |enrollment|%>
+  <div class="card my-5 mx-3 col-12 col-sm-12 col-md-3 " style="width:30%;" >
+    <%= link_to(enrollment.course.title, course_path(enrollment.course), class:"card-title courseTitle") %>
+    
+    <div class="card-body">
+      <% if enrollment.is_teacher %>
+        <%= image_tag "teacher-svgrepo-com.svg", size:"100x100" %>
+        <hr>
+        You are teaching this course
+      <% else %>
+        <% if enrollment.approved %>
+          <%= image_tag "student-svgrepo-com.svg", size:"100x100" %>
+          <hr>
+          <span class="enrolled">You are a student of this class</span>
+        <% else %>
+          <%= image_tag "pendingGIF.gif", size: "120x100", class: "pendingImg" %>
+          <hr>
+          <span class="pending">Your enrollment is pending </span>
+          <% end%>
+        <%#= enrollment.approved ? "You are a student of this class":"Your enrollment is pending"%>
+      <% end %>
+    </div>
+  </div>
+<% end %>
